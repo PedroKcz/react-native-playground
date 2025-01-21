@@ -1,36 +1,86 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# OSX
+#
+.DS_Store
 
-# dependencies
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.xcuserstate
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+
+# node.js
+#
 node_modules/
+npm-debug.log
+yarn-error.log
+
+# Bundle artifact
+*.jsbundle
+
+# Ruby / CocoaPods
+/ios/Pods/
+/vendor/bundle/
+
+# Testing
+coverage/
+junit.xml
+artifacts
+
+# Web bundle outputs
+/dist/
 
 # Expo
 .expo/
 dist/
-web-build/
-expo-env.d.ts
-
-# Native
-*.orig.*
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
+*.orig.*
+web-build/
+stats.json
 
-# Metro
-.metro-health-check*
+# VSCode
+.vscode
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+# Android & iOS folders
+/android/
+/ios/
 
-# macOS
-.DS_Store
-*.pem
+# environment variables
+.env
+.env.*
 
-# local env files
-.env*.local
+# ESLint
+.eslintcache
 
-# typescript
-*.tsbuildinfo
+# i18n
+src/locale/locales/_build/
+src/locale/locales/**/*.js
+
+# local builds
+*.apk
+*.aab
+*.ipa
