@@ -1,28 +1,32 @@
-import { StyleSheet, Text, View } from "react-native";
-
-const vegetable = "Potatoes";
-const types = ["russet", "red", "white", "yellow"];
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>
-        Hello {vegetable} with {types.length} types:{" "}
-        {types.map((type, index) =>
-          index != types.length - 1 ? type + ", " : "and " + type + "."
-        )}
-      </Text>
-    </View>
+    <SafeAreaView>
+      <View style={styles.appContainer}>
+        <View style={styles.inputContainer}>
+          <TextInput placeholder="Your goal" style={styles.textInput} />
+          <Button title="Add goal" />
+        </View>
+        <View></View>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  appContainer: {
     padding: 16,
+  },
+  inputContainer: {
+    flexDirection: "row",
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: "gray",
+    flex: 1,
+    marginEnd: 16,
   },
 });
 
