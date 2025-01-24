@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
 const vegetable = "Potatoes";
@@ -13,7 +12,6 @@ const App = () => {
           index != types.length - 1 ? type + ", " : "and " + type + "."
         )}
       </Text>
-      <StatusBar style="auto" />
     </View>
   );
 };

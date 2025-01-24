@@ -6,8 +6,8 @@ export default [
   {
     settings: {
       react: {
-        version: 'detect',
-      }
+        version: "detect",
+      },
     },
     files: ["**/*.{js,ts,jsx,tsx, mjs}"],
     plugins: {
@@ -17,5 +17,5 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   reactPlugin.configs.flat.recommended,
-  reactPlugin.configs.flat['jsx-runtime'],
+  reactPlugin.configs.flat["jsx-runtime"],
 ];
