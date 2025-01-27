@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import GoalScreen from './screens/GoalScreen';
+import GoalScreen from './screens/goal/GoalScreen';
 
 const App = () => {
   return (

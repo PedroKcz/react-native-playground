@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import uuid from 'react-native-uuid';
-import GoalInput from './../components/GoalInput';
-import GoalItem, { Goal } from './../components/GoalItem';
+import GoalInput from './components/GoalInput';
+import GoalItem, { Goal } from './components/GoalItem';
 
 const GoalScreen = () => {
   const flatListRef = useRef(null);
