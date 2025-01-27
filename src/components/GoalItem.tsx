@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Platform } from 'react-native';
 
 export interface Goal {
   text: string;
@@ -14,7 +14,9 @@ function GoalItem(props: {
       <Pressable
         android_ripple={{ color: 'gray' }}
         onPress={props.deleteGoalHandler.bind(this, props.goal)}
-        style={({ pressed }) => pressed && styles.pressedItem}
+        style={({ pressed }) =>
+          pressed && Platform.OS === 'ios' && styles.pressedItem
+        }
       >
         <Text style={styles.goalText}>{props.goal.text}</Text>
       </Pressable>
