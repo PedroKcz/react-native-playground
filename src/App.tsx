@@ -1,11 +1,29 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import GoalScreen from './screens/goal/GoalScreen';
+import HomeScreen from './screens/home/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <SafeAreaView style={styles.appContainer}>
-      <GoalScreen />
+      <NavigationContainer>
+        <Stack.Navigator id={undefined}>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Home' }}
+          />
+          <Stack.Screen
+            name="Goals"
+            component={GoalScreen}
+            options={{ title: 'Goals' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
