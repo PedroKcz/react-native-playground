@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import GoalScreen from './screens/goal/GoalScreen';
 import HomeScreen from './screens/home/HomeScreen';
+import StartGameScreen from './screens/game/StartGameScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ const App = () => {
             name="Goals"
             component={GoalScreen}
             options={{ title: 'Goals' }}
+          />
+          <Stack.Screen
+            name="StartGame"
+            component={StartGameScreen}
+            options={{ title: 'Game' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
