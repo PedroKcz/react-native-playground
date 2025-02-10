@@ -4487,7 +4487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:9.20":
+"eslint@npm:^9.20":
   version: 9.20.0
   resolution: "eslint@npm:9.20.0"
   dependencies:
@@ -8068,7 +8068,7 @@ __metadata:
     "@types/react": "npm:~18.3.1"
     "@typescript-eslint/eslint-plugin": "npm:^8.23.0"
     "@typescript-eslint/parser": "npm:^8.23.0"
-    eslint: "npm:9.20"
+    eslint: "npm:^9.20"
     eslint-config-expo: "npm:^8.0.1"
     eslint-config-prettier: "npm:^10.0.1"
     eslint-plugin-prettier: "npm:^5.2.3"
@@ -8079,20 +8079,20 @@ __metadata:
     prettier: "npm:^3.5.0"
     react: "npm:^18.3.1"
     react-native: "npm:^0.76.6"
-    react-native-safe-area-context: "npm:4.12.0"
+    react-native-safe-area-context: "npm:5.2.0"
     react-native-screens: "npm:~4.4.0"
     react-native-uuid: "npm:^2.0.3"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
-"react-native-safe-area-context@npm:4.12.0":
-  version: 4.12.0
-  resolution: "react-native-safe-area-context@npm:4.12.0"
+"react-native-safe-area-context@npm:5.2.0":
+  version: 5.2.0
+  resolution: "react-native-safe-area-context@npm:5.2.0"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/122e7e24de39371b107fcac7ecd6b62d41301a46c945c7a6b3a07c8b65d4cb9ebf58bf163bfecfd430b1bd8fdf61d4f319dac1812edd7986c00b7d2cc16da24c
+  checksum: 10c0/4b8587cf01070a434b56c1453e5666ea2fbf8a15b2316f407ae361e83650a087a0236ab4bcd6aba421028457df59c18f51384d82862c77558da44987ba8dd5f1
   languageName: node
   linkType: hard
 
