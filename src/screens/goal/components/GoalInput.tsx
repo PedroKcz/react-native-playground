@@ -8,8 +8,8 @@ import {
 
 const GoalInput = (props: {
   enteredGoalText: string;
-  goalInputHandler: (text: string) => void;
-  addGoalHandler: (event: GestureResponderEvent) => void;
+  goalInputHandler: (_text: string) => void;
+  addGoalHandler: (_event: GestureResponderEvent) => void;
 }) => {
   return (
     <View style={styles.inputContainer}>

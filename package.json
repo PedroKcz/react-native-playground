@@ -6,30 +6,41 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "yarn eslint .",
+    "lint:fix": "yarn eslint . --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "expo"
+    ]
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/native-stack": "^7.2.0",
-    "eslint-plugin-react": "^7.37.4",
     "expo": "^52.0.27",
     "expo-status-bar": "^2.0.1",
     "react": "^18.3.1",
     "react-native": "^0.76.6",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.4.0",
-    "react-native-uuid": "^2.0.3",
-    "typescript-eslint": "^8.21.0"
+    "react-native-uuid": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/eslint__js": "^8.42.3",
     "@types/react": "~18.3.1",
-    "eslint": "^9.18.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^17.15.1",
-    "eslint-plugin-promise": "^7.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "eslint": "^9.20",
+    "eslint-config-expo": "^8.0.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.5.0",
     "typescript": "^5.3.3"
   },
-  "private": true
+  "private": true,
+  "packageManager": "yarn@4.6.0"
 }

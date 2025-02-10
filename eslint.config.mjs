@@ -1,21 +1,36 @@
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import reactPlugin from "eslint-plugin-react";
+import js from '@eslint/js';
+import prettier from 'eslint-plugin-prettier';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
+  js.configs.recommended,
   {
-    settings: {
-      react: {
-        version: "detect",
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      parser: tsparser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
       },
     },
-    files: ["**/*.{js,ts,jsx,tsx, mjs}"],
     plugins: {
-      reactPlugin,
+      prettier,
+      '@typescript-eslint': tseslint,
+      react,
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      'prettier/prettier': 'warn',
+      'react/react-in-jsx-scope': 'off',
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
     },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  reactPlugin.configs.flat.recommended,
-  reactPlugin.configs.flat["jsx-runtime"],
 ];

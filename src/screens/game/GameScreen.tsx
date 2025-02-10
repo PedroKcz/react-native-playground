@@ -1,7 +1,7 @@
-import { View } from "react-native"
+import { View } from 'react-native';
 
 const GameScreen = () => {
-    return <View></View>
+  return <View></View>;
 };
 
 export default GameScreen;

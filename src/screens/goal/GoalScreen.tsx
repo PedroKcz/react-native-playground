@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import uuid from 'react-native-uuid';
 import GoalInput from './components/GoalInput';
 import GoalItem, { Goal } from './components/GoalItem';
 
 const GoalScreen = () => {
-  const flatListRef = useRef(null);
+  const flatListRef = useRef<FlatList<Goal>>(null);
 
   const [enteredGoalText, setEnteredGoal] = useState<string>('');
   const [goals, setGoals] = useState<Goal[]>([]);
@@ -15,7 +15,7 @@ const GoalScreen = () => {
   };
 
   const addGoalHandler = () => {
-    setGoals((previousGoals) => [
+    setGoals(previousGoals => [
       ...previousGoals,
       { text: enteredGoalText, key: uuid.v4() },
     ]);
@@ -24,7 +24,7 @@ const GoalScreen = () => {
   };
 
   const deleteGoalHandler = (goal: Goal) => {
-    setGoals((previousGoals) => previousGoals.filter((g) => g.key != goal.key));
+    setGoals(previousGoals => previousGoals.filter(g => g.key != goal.key));
   };
 
   return (
@@ -38,7 +38,7 @@ const GoalScreen = () => {
         style={{ flex: 1 }}
         data={goals}
         ref={flatListRef}
-        renderItem={(data) => (
+        renderItem={data => (
           <GoalItem goal={data.item} deleteGoalHandler={deleteGoalHandler} />
         )}
         contentContainerStyle={styles.contentContainerStyle}

@@ -7,13 +7,13 @@ export interface Goal {
 
 function GoalItem(props: {
   goal: Goal;
-  deleteGoalHandler: (text: Goal) => void;
+  deleteGoalHandler: (_text: Goal) => void;
 }) {
   return (
     <View style={styles.goalItem}>
       <Pressable
         android_ripple={{ color: 'gray' }}
-        onPress={props.deleteGoalHandler.bind(this, props.goal)}
+        onPress={() => props.deleteGoalHandler(props.goal)}
         style={({ pressed }) =>
           pressed && Platform.OS === 'ios' && styles.pressedItem
         }
