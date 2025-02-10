@@ -22,7 +22,7 @@
     "typescript-eslint": "^8.21.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
+    "@babel/core": "^7.26.8",
     "@types/eslint__js": "^8.42.3",
     "@types/react": "~18.3.1",
     "eslint": "^9.18.0",
