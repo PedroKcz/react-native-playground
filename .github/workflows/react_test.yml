@@ -28,3 +28,7 @@ jobs:
       - name: Run lint
         run: yarn eslint .
         shell: bash
+
+      - name: Check typescript
+        run: yarn tsc
+        shell: bash
