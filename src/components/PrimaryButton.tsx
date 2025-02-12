@@ -1,9 +1,13 @@
-import { Pressable, StyleSheet, Text, View, Platform } from 'react-native';
 import { ReactNode } from 'react';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
-const PrimaryButton = ({ children }: { children: ReactNode }) => {
-  const pressHandler = () => {};
-
+const PrimaryButton = ({
+  children,
+  onPress,
+}: {
+  children: ReactNode;
+  onPress: () => void;
+}) => {
   return (
     <View style={styles.buttonContainer}>
       <Pressable
@@ -13,7 +17,7 @@ const PrimaryButton = ({ children }: { children: ReactNode }) => {
             : styles.pressableContainer
         }
         android_ripple={{ color: 'gray' }}
-        onPress={pressHandler}
+        onPress={onPress}
       >
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
