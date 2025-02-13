@@ -21,13 +21,17 @@ const GameScreen = ({ route, navigation }: GameScreenRouteProp) => {
   };
 
   const showCheatingAlert = () => {
-    Alert.alert('Cheating detected!', 'You cannot lie to me!', [
-      {
-        text: 'Sorry',
-        style: 'destructive',
-        onPress: () => setOpponentGuess(generateRandomGuess()),
-      },
-    ]);
+    Alert.alert(
+      'Cheating detected!',
+      'You cannot lie to me! Now the game is over',
+      [
+        {
+          text: 'Sorry',
+          style: 'destructive',
+          onPress: () => setOpponentGuess(userChoice),
+        },
+      ],
+    );
   };
 
   const handleNextGuess = (isLower: boolean) => {
