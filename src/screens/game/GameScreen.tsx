@@ -14,7 +14,7 @@ const GameScreen = ({ route, navigation }: GameScreenRouteProp) => {
   );
   const [maxBound, setMaxBound] = useState<number>(100);
   const [minBound, setMinBound] = useState<number>(1);
-  const [guessCount, setGuessCount] = useState<number>(0);
+  const [guesses, setGuesses] = useState<number[]>([]);
 
   const generateRandomGuess = () => {
     return Math.floor(Math.random() * (maxBound - minBound)) + minBound;
@@ -52,11 +52,13 @@ const GameScreen = ({ route, navigation }: GameScreenRouteProp) => {
   );
 
   useEffect(() => {
-    if (opponentGuess) setGuessCount(count => count + 1);
-    if (userChoice === opponentGuess) {
-      navigation.navigate('GameOver', { guesses: guessCount });
-    }
+    if (opponentGuess) setGuesses(guesses => guesses.concat(opponentGuess));
   }, [opponentGuess]);
+
+  useEffect(() => {
+    userChoice === opponentGuess &&
+      navigation.navigate('GameOver', { guesses: guesses });
+  }, [guesses]);
 
   return (
     <View style={styles.container}>

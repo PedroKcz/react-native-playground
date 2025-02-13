@@ -2,8 +2,8 @@ type RootStackParamList = {
   Home: undefined;
   Goals: undefined;
   StartGame: undefined;
-  Game: { userChoice: number };
-  GameOver: { guesses: number };
+  Game: { readonly userChoice: number };
+  GameOver: { readonly guesses: number[] };
 };
 
 export default RootStackParamList;

@@ -39,7 +39,7 @@ const App = () => {
           <Stack.Screen
             name="GameOver"
             component={GameOverScreen}
-            options={{ title: 'Game Over' }}
+            options={{ title: 'Game Over', headerBackVisible: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
