@@ -1,63 +1,81 @@
-import { RouteProp } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
+import RootStackParamList from './../../lib/routes/types';
 
-type GameScreenRouteProp = RouteProp<
-  { params: { userChoice: number } },
-  'params'
->;
+type GameScreenRouteProp = NativeStackScreenProps<RootStackParamList, 'Game'>;
 
-const GameScreen = ({ route }: { route: GameScreenRouteProp }) => {
+const GameScreen = ({ route, navigation }: GameScreenRouteProp) => {
   let userChoice = route.params.userChoice;
-  const generateRandomNumber = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-  };
 
-  const [opponentGuess, setOpponentGuess] = useState<number>(
-    generateRandomNumber(1, 100),
+  const [opponentGuess, setOpponentGuess] = useState<number | undefined>(
+    undefined,
   );
   const [maxBound, setMaxBound] = useState<number>(100);
   const [minBound, setMinBound] = useState<number>(1);
+  const [guessCount, setGuessCount] = useState<number>(0);
+
+  const generateRandomGuess = () => {
+    return Math.floor(Math.random() * (maxBound - minBound)) + minBound;
+  };
+
+  const showCheatingAlert = () => {
+    Alert.alert('Cheating detected!', 'You cannot lie to me!', [
+      {
+        text: 'Sorry',
+        style: 'destructive',
+        onPress: () => setOpponentGuess(generateRandomGuess()),
+      },
+    ]);
+  };
 
   const handleNextGuess = (isLower: boolean) => {
     if (isLower) {
-      setMaxBound(opponentGuess);
+      userChoice >= opponentGuess
+        ? showCheatingAlert()
+        : setMaxBound(opponentGuess);
     } else {
-      setMinBound(opponentGuess + 1);
+      userChoice <= opponentGuess
+        ? showCheatingAlert()
+        : setMinBound(opponentGuess + 1);
     }
   };
 
   useEffect(
-    () => setOpponentGuess(generateRandomNumber(minBound, maxBound)),
+    () => setOpponentGuess(generateRandomGuess()),
     [maxBound, minBound],
   );
 
+  useEffect(() => {
+    if (opponentGuess) setGuessCount(count => count + 1);
+    if (userChoice === opponentGuess) {
+      navigation.navigate('GameOver', { guesses: guessCount });
+    }
+  }, [opponentGuess]);
+
   return (
     <View style={styles.container}>
-      {userChoice === opponentGuess ? (
-        <Text>Opponent guessed your number!</Text>
-      ) : (
-        <View>
-          <Text style={styles.title}>Opponent's guess</Text>
-          <View style={styles.guessContainer}>
-            <Text>{opponentGuess}</Text>
-          </View>
-          <Text style={styles.label}>Is your number lower or greater?</Text>
-          <View style={styles.buttonsContainer}>
-            <View style={styles.buttonContainer}>
-              <PrimaryButton onPress={() => handleNextGuess(true)}>
-                Lower
-              </PrimaryButton>
-            </View>
-            <View style={styles.buttonContainer}>
-              <PrimaryButton onPress={() => handleNextGuess(false)}>
-                Greater
-              </PrimaryButton>
-            </View>
-          </View>
-        </View>
-      )}
+      <Text style={styles.title}>Opponent's guess</Text>
+      <View style={styles.guessContainer}>
+        <Text>{opponentGuess}</Text>
+      </View>
+      <Text style={styles.label}>Is your number lower or greater?</Text>
+      <View style={styles.buttonsContainer}>
+        <PrimaryButton
+          style={styles.buttonContainer}
+          onPress={() => handleNextGuess(true)}
+        >
+          Lower
+        </PrimaryButton>
+
+        <PrimaryButton
+          style={styles.buttonContainer}
+          onPress={() => handleNextGuess(false)}
+        >
+          Greater
+        </PrimaryButton>
+      </View>
     </View>
   );
 };

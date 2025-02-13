@@ -1,15 +1,25 @@
 import { ReactNode } from 'react';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Platform,
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 const PrimaryButton = ({
   children,
   onPress,
+  style,
 }: {
   children: ReactNode;
   onPress: () => void;
+  style?: StyleProp<ViewStyle> | undefined;
 }) => {
   return (
-    <View style={styles.buttonContainer}>
+    <View style={[styles.buttonContainer, style]}>
       <Pressable
         style={({ pressed }) =>
           pressed && Platform.OS == 'ios'

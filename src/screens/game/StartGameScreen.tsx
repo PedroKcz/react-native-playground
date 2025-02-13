@@ -1,8 +1,15 @@
-import { StyleSheet, TextInput, View, Alert } from 'react-native';
-import PrimaryButton from '../../components/PrimaryButton';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useState } from 'react';
+import { Alert, StyleSheet, TextInput, View, Text } from 'react-native';
+import PrimaryButton from '../../components/PrimaryButton';
+import RootStackParamList from './../../lib/routes/types';
 
-const StartGameScreen = ({ navigation }) => {
+type StartGameScreenRouteProp = NativeStackScreenProps<
+  RootStackParamList,
+  'StartGame'
+>;
+
+const StartGameScreen = ({ navigation }: StartGameScreenRouteProp) => {
   const [numberInput, setNumberInput] = useState('');
 
   const handleNumberInput = (inputText: string) => {
@@ -20,13 +27,15 @@ const StartGameScreen = ({ navigation }) => {
         { text: 'Try again', style: 'destructive', onPress: handleResetInput },
       ]);
     } else {
-      navigation.navigate('GameScreen', { userChoice: chosenNumber });
+      navigation.navigate('Game', { userChoice: chosenNumber });
     }
   };
 
   return (
     <View style={styles.gameContainer}>
       <View style={styles.inputContainer}>
+        <Text style={styles.title}>Enter a number</Text>
+
         <TextInput
           style={styles.numberInput}
           maxLength={2}
@@ -39,13 +48,19 @@ const StartGameScreen = ({ navigation }) => {
         />
 
         <View style={styles.buttonsContainer}>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={handleResetInput}>Reset</PrimaryButton>
-          </View>
+          <PrimaryButton
+            style={styles.buttonContainer}
+            onPress={handleResetInput}
+          >
+            Reset
+          </PrimaryButton>
 
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={handleConfirmInput}>Confirm</PrimaryButton>
-          </View>
+          <PrimaryButton
+            style={styles.buttonContainer}
+            onPress={handleConfirmInput}
+          >
+            Confirm
+          </PrimaryButton>
         </View>
       </View>
     </View>
@@ -57,6 +72,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: 'white',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   inputContainer: {
     padding: 16,

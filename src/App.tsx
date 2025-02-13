@@ -6,8 +6,10 @@ import GoalScreen from './screens/goal/GoalScreen';
 import HomeScreen from './screens/home/HomeScreen';
 import StartGameScreen from './screens/game/StartGameScreen';
 import GameScreen from './screens/game/GameScreen';
+import GameOverScreen from './screens/game/GameOverScreen';
+import RootStackParamList from './lib/routes/types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
@@ -30,9 +32,14 @@ const App = () => {
             options={{ title: 'Start Game' }}
           />
           <Stack.Screen
-            name="GameScreen"
+            name="Game"
             component={GameScreen}
             options={{ title: 'Game' }}
+          />
+          <Stack.Screen
+            name="GameOver"
+            component={GameOverScreen}
+            options={{ title: 'Game Over' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
