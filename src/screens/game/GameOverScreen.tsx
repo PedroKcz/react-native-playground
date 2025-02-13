@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, FlatList } from 'react-native';
 import RootStackParamList from './../../lib/routes/types';
 import PrimaryButton from '../../components/PrimaryButton';
 
@@ -19,11 +19,15 @@ const GameOverScreen = ({ navigation, route }: GameOverScreenRouteProp) => {
           <Text style={styles.summaryHighlight}>{guesses.length}</Text>
         </Text>
 
-        {guesses.map((guess, index) => (
-          <Text key={guess} style={styles.guess}>
-            Guess {index + 1}: {guess}
-          </Text>
-        ))}
+        <FlatList
+          style={styles.guessesContainer}
+          data={guesses}
+          renderItem={({ index, item }) => (
+            <Text key={index} style={styles.guess}>
+              Guess {index + 1}: {item}
+            </Text>
+          )}
+        />
       </View>
       <PrimaryButton
         style={styles.buttonContainer}
@@ -40,6 +44,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   guessContainer: {
+    flex: 1,
+  },
+  guessesContainer: {
     flex: 1,
   },
   title: {
