@@ -1,5 +1,5 @@
 import { RouteProp } from '@react-navigation/native';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 
@@ -17,30 +17,44 @@ const GameScreen = ({ route }: { route: GameScreenRouteProp }) => {
   const [opponentGuess, setOpponentGuess] = useState<number>(
     generateRandomNumber(1, 100),
   );
+  const [maxBound, setMaxBound] = useState<number>(100);
+  const [minBound, setMinBound] = useState<number>(1);
+
+  const handleNextGuess = (isLower: boolean) => {
+    if (isLower) {
+      setMaxBound(opponentGuess);
+    } else {
+      setMinBound(opponentGuess + 1);
+    }
+  };
+
+  useEffect(
+    () => setOpponentGuess(generateRandomNumber(minBound, maxBound)),
+    [maxBound, minBound],
+  );
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Opponent's guess</Text>
       {userChoice === opponentGuess ? (
         <Text>Opponent guessed your number!</Text>
       ) : (
         <View>
-          <Text>Opponent's guess is {opponentGuess}</Text>
+          <Text style={styles.title}>Opponent's guess</Text>
+          <View style={styles.guessContainer}>
+            <Text>{opponentGuess}</Text>
+          </View>
+          <Text style={styles.label}>Is your number lower or greater?</Text>
           <View style={styles.buttonsContainer}>
-            <PrimaryButton
-              onPress={() => {
-                setOpponentGuess(generateRandomNumber(1, opponentGuess));
-              }}
-            >
-              Lower
-            </PrimaryButton>
-            <PrimaryButton
-              onPress={() => {
-                setOpponentGuess(generateRandomNumber(opponentGuess, 100));
-              }}
-            >
-              Greater
-            </PrimaryButton>
+            <View style={styles.buttonContainer}>
+              <PrimaryButton onPress={() => handleNextGuess(true)}>
+                Lower
+              </PrimaryButton>
+            </View>
+            <View style={styles.buttonContainer}>
+              <PrimaryButton onPress={() => handleNextGuess(false)}>
+                Greater
+              </PrimaryButton>
+            </View>
           </View>
         </View>
       )}
@@ -51,22 +65,39 @@ const GameScreen = ({ route }: { route: GameScreenRouteProp }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     padding: 16,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
-    borderWidth: 2,
+    textAlign: 'center',
     padding: 8,
-    borderColor: 'mediumseagreen',
   },
   buttonsContainer: {
-    flex: 1,
     flexDirection: 'row',
+    alignContent: 'space-evenly',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  buttonContainer: {
+    flex: 1,
+    marginVertical: 8,
+    marginHorizontal: 4,
+  },
+  guessContainer: {
+    padding: 16,
+    backgroundColor: 'azure',
+    borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'normal',
+    color: 'black',
+    textAlign: 'center',
+    padding: 8,
   },
 });
 
