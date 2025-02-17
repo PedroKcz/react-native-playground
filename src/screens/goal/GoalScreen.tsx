@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import uuid from 'react-native-uuid';
 import GoalInput from './components/GoalInput';
@@ -20,8 +20,11 @@ const GoalScreen = () => {
       { text: enteredGoalText, key: uuid.v4() },
     ]);
     setEnteredGoal('');
-    flatListRef.current?.scrollToEnd({ animated: true });
   };
+
+  useEffect(() => {
+    flatListRef.current?.scrollToEnd({ animated: true });
+  }, [goals]);
 
   const deleteGoalHandler = (goal: Goal) => {
     setGoals(previousGoals => previousGoals.filter(g => g.key != goal.key));
