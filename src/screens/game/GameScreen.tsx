@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import RootStackParamList from './../../lib/routes/types';
@@ -46,18 +46,16 @@ const GameScreen = ({ route, navigation }: GameScreenRouteProp) => {
     }
   };
 
-  useEffect(
-    () => setOpponentGuess(generateRandomGuess()),
-    [maxBound, minBound],
-  );
+  useMemo(() => setOpponentGuess(generateRandomGuess()), [maxBound, minBound]);
 
-  useEffect(() => {
+  useMemo(() => {
     if (opponentGuess) setGuesses(guesses => guesses.concat(opponentGuess));
   }, [opponentGuess]);
 
   useEffect(() => {
-    userChoice === opponentGuess &&
+    if (opponentGuess === userChoice) {
       navigation.navigate('GameOver', { guesses: guesses });
+    }
   }, [guesses]);
 
   return (
