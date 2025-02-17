@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type RootStackParamList = {
+type RootStackParams = {
   Home: undefined;
   Goals: undefined;
   StartGame: undefined;
@@ -8,24 +8,21 @@ type RootStackParamList = {
   GameOver: { readonly guesses: number[] };
 };
 
-export type HomeScreenProps = NativeStackScreenProps<
-  RootStackParamList,
-  'Home'
->;
+export type HomeScreenProps = NativeStackScreenProps<RootStackParams, 'Home'>;
 
 export type StartGameScreenRouteProp = NativeStackScreenProps<
-  RootStackParamList,
+  RootStackParams,
   'StartGame'
 >;
 
 export type GameScreenRouteProp = NativeStackScreenProps<
-  RootStackParamList,
+  RootStackParams,
   'Game'
 >;
 
 export type GameOverScreenRouteProp = NativeStackScreenProps<
-  RootStackParamList,
+  RootStackParams,
   'GameOver'
 >;
 
-export default RootStackParamList;
+export default RootStackParams;

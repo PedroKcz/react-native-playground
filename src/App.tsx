@@ -7,9 +7,9 @@ import HomeScreen from './screens/home/HomeScreen';
 import StartGameScreen from './screens/game/StartGameScreen';
 import GameScreen from './screens/game/GameScreen';
 import GameOverScreen from './screens/game/GameOverScreen';
-import RootStackParamList from './lib/routes/types';
+import RootStackParams from './lib/routes/types';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParams>();
 
 const App = () => {
   return (
