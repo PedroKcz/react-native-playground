@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import { StartGameScreenRouteProp } from './../../lib/routes/types';
 
@@ -26,42 +34,50 @@ const StartGameScreen = ({ navigation }: StartGameScreenRouteProp) => {
   };
 
   return (
-    <View style={styles.gameContainer}>
-      <View style={styles.inputContainer}>
-        <Text style={styles.title}>Enter a number</Text>
+    <ScrollView style={styles.screen}>
+      <KeyboardAvoidingView style={styles.screen} behavior="position">
+        <View style={styles.gameContainer}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.title}>Enter a number</Text>
 
-        <TextInput
-          style={styles.numberInput}
-          maxLength={2}
-          keyboardType="number-pad"
-          autoCapitalize="none"
-          returnKeyType="done"
-          autoCorrect={false}
-          onChangeText={handleNumberInput}
-          value={numberInput}
-        />
+            <TextInput
+              style={styles.numberInput}
+              maxLength={2}
+              keyboardType="number-pad"
+              autoCapitalize="none"
+              returnKeyType="done"
+              autoCorrect={false}
+              onChangeText={handleNumberInput}
+              value={numberInput}
+            />
 
-        <View style={styles.buttonsContainer}>
-          <PrimaryButton
-            style={styles.buttonContainer}
-            onPress={handleResetInput}
-          >
-            Reset
-          </PrimaryButton>
+            <View style={styles.buttonsContainer}>
+              <PrimaryButton
+                style={styles.buttonContainer}
+                onPress={handleResetInput}
+              >
+                Reset
+              </PrimaryButton>
 
-          <PrimaryButton
-            style={styles.buttonContainer}
-            onPress={handleConfirmInput}
-          >
-            Confirm
-          </PrimaryButton>
+              <PrimaryButton
+                style={styles.buttonContainer}
+                onPress={handleConfirmInput}
+              >
+                Confirm
+              </PrimaryButton>
+            </View>
+          </View>
         </View>
-      </View>
-    </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
   gameContainer: {
     flex: 1,
     padding: 16,

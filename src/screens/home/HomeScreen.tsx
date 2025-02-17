@@ -1,9 +1,13 @@
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, useWindowDimensions, StyleSheet, View } from 'react-native';
 import { HomeScreenProps } from '../../lib/routes/types';
+import WelcomeTitle from './components/WelcomeTitle';
 
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
+  const { width, height } = useWindowDimensions();
+  const flexDirection = height > width ? 'column' : 'row';
   return (
-    <View style={styles.homeContainer}>
+    <View style={[styles.homeContainer, { flexDirection: flexDirection }]}>
+      <WelcomeTitle />
       <View style={styles.buttonContainer}>
         <Button title="Goals" onPress={() => navigation.navigate('Goals')} />
       </View>

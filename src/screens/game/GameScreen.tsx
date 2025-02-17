@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, Platform, StyleSheet, Text, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import { GameScreenRouteProp } from './../../lib/routes/types';
 
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   guessContainer: {
     padding: 16,
     backgroundColor: 'azure',
-    borderRadius: 8,
+    borderRadius: Platform.select({ ios: 16, android: 8 }),
     justifyContent: 'center',
     alignItems: 'center',
   },
