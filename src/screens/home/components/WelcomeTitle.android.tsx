@@ -1,4 +1,5 @@
 import { Text, StyleSheet } from 'react-native';
+import React from 'react';
 
 const WelcomeTitle = () => {
   return <Text style={styles.title}>Welcome to React Native in Android!</Text>;
@@ -13,4 +14,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeTitle;
+export default React.memo(WelcomeTitle);
