@@ -26,9 +26,13 @@ jobs:
         shell: bash
 
       - name: Run lint
-        run: yarn eslint .
+        run: yarn lint
         shell: bash
 
       - name: Check typescript
         run: yarn tsc
+        shell: bash
+
+      - name: Run tests
+        run: yarn test
         shell: bash
