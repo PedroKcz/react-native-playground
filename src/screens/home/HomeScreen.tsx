@@ -1,8 +1,5 @@
 import { Button, StyleSheet, View } from 'react-native';
-import RootStackParamList from '../../lib/routes/types';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+import { HomeScreenProps } from '../../lib/routes/types';
 
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
   return (

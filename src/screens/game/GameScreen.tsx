@@ -1,10 +1,7 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
-import RootStackParamList from './../../lib/routes/types';
-
-type GameScreenRouteProp = NativeStackScreenProps<RootStackParamList, 'Game'>;
+import { GameScreenRouteProp } from './../../lib/routes/types';
 
 const GameScreen = ({ route, navigation }: GameScreenRouteProp) => {
   let userChoice = route.params.userChoice;

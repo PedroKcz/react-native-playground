@@ -1,12 +1,6 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
-import RootStackParamList from './../../lib/routes/types';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
-
-type GameOverScreenRouteProp = NativeStackScreenProps<
-  RootStackParamList,
-  'GameOver'
->;
+import { GameOverScreenRouteProp } from './../../lib/routes/types';
 
 const GameOverScreen = ({ navigation, route }: GameOverScreenRouteProp) => {
   let guesses = route.params.guesses;

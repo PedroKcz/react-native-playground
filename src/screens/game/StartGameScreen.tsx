@@ -1,13 +1,7 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useState } from 'react';
-import { Alert, StyleSheet, TextInput, View, Text } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
-import RootStackParamList from './../../lib/routes/types';
-
-type StartGameScreenRouteProp = NativeStackScreenProps<
-  RootStackParamList,
-  'StartGame'
->;
+import { StartGameScreenRouteProp } from './../../lib/routes/types';
 
 const StartGameScreen = ({ navigation }: StartGameScreenRouteProp) => {
   const [numberInput, setNumberInput] = useState('');
