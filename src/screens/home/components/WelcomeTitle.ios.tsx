@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(WelcomeTitle);;
+export default React.memo(WelcomeTitle);
