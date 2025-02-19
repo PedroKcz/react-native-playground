@@ -1,12 +1,5 @@
 import { ReactNode } from 'react';
-import {
-  Platform,
-  StyleProp,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import PressableCard from './PressableCard';
 
 const PrimaryButton = ({

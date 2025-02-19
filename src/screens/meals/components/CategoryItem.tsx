@@ -1,6 +1,6 @@
-import { Pressable, Text, StyleSheet, View } from 'react-native';
-import Category from '../models/Category';
+import { StyleSheet, Text, View } from 'react-native';
 import PressableCard from '../../../components/PressableCard';
+import Category from '../models/Category';
 
 interface CategoryItemProps {
   category: Category;

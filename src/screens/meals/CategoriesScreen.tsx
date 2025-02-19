@@ -1,7 +1,7 @@
-import { View, StyleSheet, FlatList, Text } from 'react-native';
-import { categories } from './data/MealsData';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { MealsCategoriesScreenRouteProp } from '../../lib/routes/types';
 import CategoryItem from './components/CategoryItem';
+import { categories } from './data/MealsData';
 
 const CategoriesScreen = ({ navigation }: MealsCategoriesScreenRouteProp) => {
   return (
