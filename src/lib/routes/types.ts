@@ -1,14 +1,14 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import Category from '../../screens/meals/models/Category';
 
 type RootStackParams = {
   Home: undefined;
   Goals: undefined;
   StartGame: undefined;
-  Game: { readonly userChoice: number };
-  GameOver: { readonly guesses: number[] };
+  Game: { userChoice: number };
+  GameOver: { guesses: number[] };
   MealsCategories: undefined;
-  MealsCategory: { category: Category };
+  MealsCategory: { name: string; id: string };
+  MealDetails: { name: string; id: string };
 };
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParams, 'Home'>;
@@ -36,6 +36,11 @@ export type MealsCategoriesScreenRouteProp = NativeStackScreenProps<
 export type MealsCategoryScreenRouteProp = NativeStackScreenProps<
   RootStackParams,
   'MealsCategory'
+>;
+
+export type MealDetailsScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'MealDetails'
 >;
 
 export default RootStackParams;

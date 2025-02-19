@@ -10,6 +10,7 @@ import GameOverScreen from './screens/game/GameOverScreen';
 import RootStackParams from './lib/routes/types';
 import CategoriesScreen from './screens/meals/CategoriesScreen';
 import CategoryScreen from './screens/meals/CategoryScreen';
+import MealDetailsScreen from './screens/meals/MealDetailsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -52,7 +53,14 @@ const App = () => {
             name="MealsCategory"
             component={CategoryScreen}
             options={({ route }) => ({
-              title: route.params.category.title,
+              title: route.params.name,
+            })}
+          />
+          <Stack.Screen
+            name="MealDetails"
+            component={MealDetailsScreen}
+            options={({ route }) => ({
+              title: route.params.name,
             })}
           />
         </Stack.Navigator>

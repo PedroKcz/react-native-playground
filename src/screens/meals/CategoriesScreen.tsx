@@ -12,7 +12,10 @@ const CategoriesScreen = ({ navigation }: MealsCategoriesScreenRouteProp) => {
         <CategoryItem
           category={item}
           onPress={() => {
-            navigation.navigate('MealsCategory', { category: item });
+            navigation.navigate('MealsCategory', {
+              id: item.id,
+              name: item.title,
+            });
           }}
         />
       )}
