@@ -14,7 +14,7 @@ export const categories: Category[] = [
   { id: 'c10', title: 'Summer', color: '#47fced' },
 ];
 
-const meals: Meal[] = [
+export const meals: Meal[] = [
   {
     id: 'm1',
     categoryIds: ['c1', 'c2', 'c5'],
@@ -422,5 +422,3 @@ const meals: Meal[] = [
     isLactoseFree: true,
   },
 ];
-
-export default meals;
