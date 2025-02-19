@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 import {
   Platform,
-  Pressable,
   StyleProp,
   StyleSheet,
   Text,
   View,
   ViewStyle,
 } from 'react-native';
+import PressableCard from './PressableCard';
 
 const PrimaryButton = ({
   children,
@@ -20,17 +20,9 @@ const PrimaryButton = ({
 }) => {
   return (
     <View style={[styles.buttonContainer, style]}>
-      <Pressable
-        style={({ pressed }) =>
-          pressed && Platform.OS == 'ios'
-            ? [styles.pressableContainer, styles.pressedButton]
-            : styles.pressableContainer
-        }
-        android_ripple={{ color: 'gray' }}
-        onPress={onPress}
-      >
+      <PressableCard onPress={onPress}>
         <Text style={styles.buttonText}>{children}</Text>
-      </Pressable>
+      </PressableCard>
     </View>
   );
 };
@@ -46,15 +38,8 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 0.25,
   },
-  pressableContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
   buttonText: {
     textAlign: 'center',
-  },
-  pressedButton: {
-    opacity: 0.5,
   },
 });
 

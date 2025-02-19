@@ -15,6 +15,10 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       <View style={styles.buttonContainer}>
         <Button title="Game" onPress={() => navigation.navigate('StartGame')} />
       </View>
+
+      <View style={styles.buttonContainer}>
+        <Button title="Meals" onPress={() => navigation.navigate('MealsCategories')} />
+      </View>
     </View>
   );
 };
