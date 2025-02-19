@@ -21,7 +21,7 @@ const PressableCard = ({ onPress, children, style }: PressableCardProps) => {
           ? [styles.pressableContainer, styles.pressedButton, style]
           : [styles.pressableContainer, style]
       }
-      android_ripple={{ color: 'white' }}
+      android_ripple={{ color: 'rgba(255, 255, 255, 0.5)', foreground: true }}
       onPress={onPress}
     >
       {children}
