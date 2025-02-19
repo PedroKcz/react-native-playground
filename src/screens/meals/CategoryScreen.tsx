@@ -1,6 +1,6 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
-import PressableCard from '../../components/PressableCard';
+import { FlatList, StyleSheet } from 'react-native';
 import { MealsCategoryScreenRouteProp } from '../../lib/routes/types';
+import MealItem from './components/MealItem';
 import { categories, meals } from './data/MealsData';
 import Category from './models/Category';
 import Meal from './models/Meal';
@@ -15,33 +15,27 @@ const CategoryScreen = ({
   );
 
   return (
-    <View style={styles.screen}>
-      <Text>{category.title}</Text>
-      <FlatList
-        style={styles.mealsContainer}
-        data={mealsInCategory}
-        renderItem={({ item }) => (
-          <PressableCard
-            onPress={() =>
-              navigation.navigate('MealDetails', {
-                id: item.id,
-                name: item.title,
-              })
-            }
-          >
-            <Text>{item.title}</Text>
-          </PressableCard>
-        )}
-        keyExtractor={item => item.id}
-      />
-    </View>
+    <FlatList
+      style={styles.mealsContainer}
+      data={mealsInCategory}
+      renderItem={({ item }) => (
+        <MealItem
+          meal={item}
+          onPress={() => {
+            navigation.navigate('MealDetails', {
+              id: item.id,
+              name: item.title,
+            });
+          }}
+        />
+      )}
+      contentContainerStyle={{ padding: 16, gap: 16 }}
+      keyExtractor={item => item.id}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
   mealsContainer: {
     flex: 1,
   },

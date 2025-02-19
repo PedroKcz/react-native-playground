@@ -18,7 +18,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.appContainer}>
       <NavigationContainer>
-        <Stack.Navigator id={undefined}>
+        <Stack.Navigator id={undefined} initialRouteName="Home">
           <Stack.Screen
             name="Home"
             component={HomeScreen}
