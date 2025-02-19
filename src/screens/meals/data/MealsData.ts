@@ -21,7 +21,8 @@ const meals: Meal[] = [
     title: 'Italian Veggie Pasta',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/italian-veggie-pasta.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 30,
     ingredients: [
       'Pasta',
@@ -48,7 +49,8 @@ const meals: Meal[] = [
     title: 'Veggie Stir-Fry',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/veggie-stir-fry.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1599297915779-0dadbd376d49?q=80&w=3732&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 20,
     ingredients: [
       'Tofu',
@@ -75,7 +77,8 @@ const meals: Meal[] = [
     title: 'Avocado Toast',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/avocado-toast.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1603046891726-36bfd957e0bf?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 10,
     ingredients: ['Bread', 'Avocado', 'Lemon', 'Olive oil', 'Salt', 'Pepper'],
     steps: [
@@ -93,7 +96,8 @@ const meals: Meal[] = [
     title: 'Vegetarian Burger',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/vegetarian-burger.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=3690&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 40,
     ingredients: [
       'Vegetarian burger patties',
@@ -119,7 +123,8 @@ const meals: Meal[] = [
     title: 'Zucchini Noodles with Pesto',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/zucchini-noodles-pesto.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1645775372267-c0299feab469?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 25,
     ingredients: [
       'Zucchini',
@@ -144,7 +149,8 @@ const meals: Meal[] = [
     title: 'Sweet Potato Fries',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/sweet-potato-fries.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1585443835125-d85820a16e89?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 35,
     ingredients: ['Sweet potatoes', 'Olive oil', 'Paprika', 'Salt', 'Pepper'],
     steps: [
@@ -162,7 +168,8 @@ const meals: Meal[] = [
     title: 'Mango Coconut Rice',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/mango-coconut-rice.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1592119747782-d8c12c2ea267?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 40,
     ingredients: ['Jasmine rice', 'Coconut milk', 'Mango', 'Lime', 'Sugar'],
     steps: [
@@ -180,7 +187,8 @@ const meals: Meal[] = [
     title: 'Vegetarian Tacos',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/vegetarian-tacos.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1613591797545-3ff9eba2ac34?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 20,
     ingredients: [
       'Corn tortillas',
@@ -205,7 +213,8 @@ const meals: Meal[] = [
     title: 'Falafel Wrap',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/falafel-wrap.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1681072530653-db8fe2538631?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 40,
     ingredients: [
       'Falafel balls',
@@ -231,7 +240,8 @@ const meals: Meal[] = [
     title: 'Chickpea Salad',
     affordability: 'affordable',
     complexity: 'easy',
-    imageUrl: 'https://example.com/chickpea-salad.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1515543904379-3d757afe72e4?q=80&w=3264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 15,
     ingredients: [
       'Canned chickpeas',
@@ -257,7 +267,8 @@ const meals: Meal[] = [
     title: 'Pineapple Fried Rice',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/pineapple-fried-rice.jpg',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1723708882892-de33ff578c11?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 30,
     ingredients: [
       'Rice',
@@ -282,7 +293,8 @@ const meals: Meal[] = [
     title: 'Spaghetti Squash Primavera',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/spaghetti-squash-primavera.jpg',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1664391765043-57f702c4d41d?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 40,
     ingredients: [
       'Spaghetti squash',
@@ -309,7 +321,8 @@ const meals: Meal[] = [
     title: 'German Potato Salad',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/german-potato-salad.jpg',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1677528816982-673398569f03?q=80&w=3600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 40,
     ingredients: [
       'Potatoes',
@@ -334,7 +347,8 @@ const meals: Meal[] = [
     title: 'Sauerkraut and Veggie Stew',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/sauerkraut-veggie-stew.jpg',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1702318027198-c328a5b43732?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U2F1ZXJrcmF1dCUyMGFuZCUyMFZlZ2dpZSUyMFN0ZXd8ZW58MHx8MHx8fDA%3D',
     duration: 50,
     ingredients: [
       'Sauerkraut',
@@ -360,7 +374,8 @@ const meals: Meal[] = [
     title: 'French Ratatouille',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/french-ratatouille.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?q=80&w=3470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     duration: 45,
     ingredients: [
       'Zucchini',
@@ -386,7 +401,8 @@ const meals: Meal[] = [
     title: 'French Onion Soup (Vegan)',
     affordability: 'affordable',
     complexity: 'medium',
-    imageUrl: 'https://example.com/french-onion-soup.jpg',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1727960325953-ef51e51d73f1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RnJlbmNoJTIwT25pb24lMjBTb3VwfGVufDB8fDB8fHww',
     duration: 60,
     ingredients: [
       'Onions',
