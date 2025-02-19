@@ -13,10 +13,30 @@ const MealItem = ({ meal, onPress }: MealItemProps) => {
       <View style={styles.innerContainer}>
         <Image source={{ uri: meal.imageUrl }} style={styles.image} />
         <Text style={styles.title}>{meal.title}</Text>
+        <View style={styles.details}>
+          <MealDetail>{`${meal.duration}m`}</MealDetail>
+          <MealDetail>{capitalize(meal.complexity)}</MealDetail>
+          <MealDetail>{capitalize(meal.affordability)}</MealDetail>
+          {meal.isLactoseFree && <MealDetail>Lactose Free</MealDetail>}
+          {meal.isVegan && <MealDetail>Vegan</MealDetail>}
+          {meal.isGlutenFree && <MealDetail>Gluten Free</MealDetail>}
+        </View>
       </View>
     </PressableCard>
   );
 };
+
+const MealDetail = ({ children }) => {
+  return (
+    <View style={styles.detailContainer}>
+      <Text style={styles.detailsLabel}>{children}</Text>
+    </View>
+  );
+};
+
+function capitalize(string: string): string {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -42,6 +62,23 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginHorizontal: 8,
     fontWeight: 'bold',
+  },
+  details: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginHorizontal: 8,
+    rowGap: 8,
+    gap: 8,
+    marginTop: 8,
+  },
+  detailContainer: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: 'lightblue',
+  },
+  detailsLabel: {
+    fontWeight: 'bold',
+    fontSize: 12,
   },
 });
 
