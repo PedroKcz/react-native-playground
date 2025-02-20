@@ -1,6 +1,7 @@
 import { capitalize } from '@/utils';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import IconButton from '../../components/IconButton';
 import Tag from '../../components/Tag';
 import { MealDetailsScreenRouteProp } from '../../lib/routes/types';
 import { meals } from './data/MealsData';
@@ -11,16 +12,32 @@ const MealDetailsScreen = ({
   navigation,
 }: MealDetailsScreenRouteProp) => {
   const meal: Meal = meals.find(meal => meal.id == route.params.id);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavorite = () => setIsFavorite(prev => !prev);
+
   useLayoutEffect(() => {
-    navigation.setOptions({ title: meal.title });
-  }, [navigation, meal]);
+    navigation.setOptions({
+      title: meal.title,
+      headerRight: () => (
+        <IconButton
+          icon={isFavorite ? 'star' : 'star-outline'}
+          onPress={handleFavorite}
+          color={isFavorite ? 'gold' : 'black'}
+        />
+      ),
+    });
+  }, [navigation, meal, isFavorite]);
 
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
-      <Image source={{ uri: meal.imageUrl }} style={styles.image} />
+      <Image
+        source={{ uri: meal.imageUrl, cache: 'force-cache' }}
+        style={styles.image}
+      />
       <Text style={styles.title}>{meal.title}</Text>
       <View style={styles.tags}>
         <Tag>{meal.duration}m</Tag>

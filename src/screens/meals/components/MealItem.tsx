@@ -1,8 +1,8 @@
-import { Text, Image, View, StyleSheet } from 'react-native';
-import Meal from '../models/Meal';
+import { capitalize } from '@/utils';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import PressableCard from '../../../components/PressableCard';
 import Tag from '../../../components/Tag';
-import { capitalize } from '@/utils';
+import Meal from '../models/Meal';
 
 interface MealItemProps {
   meal: Meal;
@@ -13,7 +13,10 @@ const MealItem = ({ meal, onPress }: MealItemProps) => {
   return (
     <PressableCard onPress={() => onPress()} style={styles.container}>
       <View style={styles.innerContainer}>
-        <Image source={{ uri: meal.imageUrl }} style={styles.image} />
+        <Image
+          source={{ uri: meal.imageUrl, cache: 'force-cache' }}
+          style={styles.image}
+        />
         <Text style={styles.title}>{meal.title}</Text>
         <View style={styles.details}>
           <Tag>{`${meal.duration}m`}</Tag>
