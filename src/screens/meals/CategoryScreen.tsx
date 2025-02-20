@@ -1,3 +1,4 @@
+import { useLayoutEffect } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { MealsCategoryScreenRouteProp } from '../../lib/routes/types';
 import MealItem from './components/MealItem';
@@ -14,6 +15,10 @@ const CategoryScreen = ({
     meal.categoryIds.includes(category.id),
   );
 
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: category.title });
+  }, [navigation, category]);
+
   return (
     <FlatList
       style={styles.mealsContainer}
@@ -22,14 +27,11 @@ const CategoryScreen = ({
         <MealItem
           meal={item}
           onPress={() => {
-            navigation.navigate('MealDetails', {
-              id: item.id,
-              name: item.title,
-            });
+            navigation.navigate('MealDetails', { id: item.id });
           }}
         />
       )}
-      contentContainerStyle={{ padding: 16, gap: 16 }}
+      contentContainerStyle={styles.contentContainer}
       keyExtractor={item => item.id}
     />
   );
@@ -38,6 +40,12 @@ const CategoryScreen = ({
 const styles = StyleSheet.create({
   mealsContainer: {
     flex: 1,
+  },
+  contentContainer: {
+    paddingTop: 16,
+    paddingBottom: 32,
+    gap: 16,
+    paddingHorizontal: 16,
   },
 });
 

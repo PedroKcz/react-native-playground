@@ -52,16 +52,12 @@ const App = () => {
           <Stack.Screen
             name="MealsCategory"
             component={CategoryScreen}
-            options={({ route }) => ({
-              title: route.params.name,
-            })}
+            options={{ title: '' }}
           />
           <Stack.Screen
             name="MealDetails"
             component={MealDetailsScreen}
-            options={({ route }) => ({
-              title: route.params.name,
-            })}
+            options={{ title: '' }}
           />
         </Stack.Navigator>
       </NavigationContainer>

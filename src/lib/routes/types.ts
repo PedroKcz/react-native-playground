@@ -7,8 +7,8 @@ type RootStackParams = {
   Game: { userChoice: number };
   GameOver: { guesses: number[] };
   MealsCategories: undefined;
-  MealsCategory: { name: string; id: string };
-  MealDetails: { name: string; id: string };
+  MealsCategory: { id: string };
+  MealDetails: { id: string };
 };
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParams, 'Home'>;

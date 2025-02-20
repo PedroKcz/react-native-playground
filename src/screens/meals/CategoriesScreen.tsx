@@ -12,10 +12,7 @@ const CategoriesScreen = ({ navigation }: MealsCategoriesScreenRouteProp) => {
         <CategoryItem
           category={item}
           onPress={() => {
-            navigation.navigate('MealsCategory', {
-              id: item.id,
-              name: item.title,
-            });
+            navigation.navigate('MealsCategory', { id: item.id });
           }}
         />
       )}
@@ -33,7 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    padding: 16,
+    paddingTop: 16,
+    paddingBottom: 32,
+    paddingHorizontal: 16,
   },
   columnWrapper: {
     gap: 16,

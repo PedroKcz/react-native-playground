@@ -1,6 +1,8 @@
 import { Text, Image, View, StyleSheet } from 'react-native';
 import Meal from '../models/Meal';
 import PressableCard from '../../../components/PressableCard';
+import Tag from '../../../components/Tag';
+import { capitalize } from '@/utils';
 
 interface MealItemProps {
   meal: Meal;
@@ -14,29 +16,17 @@ const MealItem = ({ meal, onPress }: MealItemProps) => {
         <Image source={{ uri: meal.imageUrl }} style={styles.image} />
         <Text style={styles.title}>{meal.title}</Text>
         <View style={styles.details}>
-          <MealDetail>{`${meal.duration}m`}</MealDetail>
-          <MealDetail>{capitalize(meal.complexity)}</MealDetail>
-          <MealDetail>{capitalize(meal.affordability)}</MealDetail>
-          {meal.isLactoseFree && <MealDetail>Lactose Free</MealDetail>}
-          {meal.isVegan && <MealDetail>Vegan</MealDetail>}
-          {meal.isGlutenFree && <MealDetail>Gluten Free</MealDetail>}
+          <Tag>{`${meal.duration}m`}</Tag>
+          <Tag>{capitalize(meal.complexity)}</Tag>
+          <Tag>{capitalize(meal.affordability)}</Tag>
+          {meal.isLactoseFree && <Tag>Lactose Free</Tag>}
+          {meal.isVegan && <Tag>Vegan</Tag>}
+          {meal.isGlutenFree && <Tag>Gluten Free</Tag>}
         </View>
       </View>
     </PressableCard>
   );
 };
-
-const MealDetail = ({ children }) => {
-  return (
-    <View style={styles.detailContainer}>
-      <Text style={styles.detailsLabel}>{children}</Text>
-    </View>
-  );
-};
-
-function capitalize(string: string): string {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -70,15 +60,6 @@ const styles = StyleSheet.create({
     rowGap: 8,
     gap: 8,
     marginTop: 8,
-  },
-  detailContainer: {
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: 'lightblue',
-  },
-  detailsLabel: {
-    fontWeight: 'bold',
-    fontSize: 12,
   },
 });
 
