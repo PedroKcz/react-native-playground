@@ -1,14 +1,6 @@
-import {
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  jest,
-  test,
-} from '@jest/globals';
+import { beforeEach, describe, expect, test } from '@jest/globals';
 import { fireEvent, render, RenderAPI } from '@testing-library/react-native';
 import App from '../../../src/App';
-import IconButton from '../../../src/components/IconButton';
 
 describe('MealsDetailsScreen', () => {
   let screen: RenderAPI;
