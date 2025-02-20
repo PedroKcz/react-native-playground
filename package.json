@@ -17,7 +17,15 @@
     ]
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "./__tests__/jestSetup.ts"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.ts ",
+      "**/__tests__/**/*.test.tsx",
+      "**/?(*.)+(spec|test).ts"
+    ]
   },
   "expo": {
     "install": {

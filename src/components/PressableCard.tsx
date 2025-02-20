@@ -11,9 +11,15 @@ interface PressableCardProps {
   onPress: () => void;
   children: React.ReactNode;
   style?: StyleProp<ViewStyle> | undefined;
+  accessibilityHint?: string;
 }
 
-const PressableCard = ({ onPress, children, style }: PressableCardProps) => {
+const PressableCard = ({
+  onPress,
+  children,
+  style,
+  accessibilityHint,
+}: PressableCardProps) => {
   return (
     <Pressable
       style={({ pressed }) =>
@@ -23,6 +29,7 @@ const PressableCard = ({ onPress, children, style }: PressableCardProps) => {
       }
       android_ripple={{ color: 'rgba(255, 255, 255, 0.5)', foreground: true }}
       onPress={onPress}
+      accessibilityHint={accessibilityHint}
     >
       {children}
     </Pressable>

@@ -6,10 +6,20 @@ type IconButtonProps = {
   icon: keyof typeof Ionicons.glyphMap;
   onPress: () => void;
   color?: string;
+  accessibilityHint?: string;
 };
 
-const IconButton = ({ icon, onPress, color }: IconButtonProps) => (
-  <PressableCard onPress={onPress} style={styles.buttonContainer}>
+const IconButton = ({
+  icon,
+  onPress,
+  color,
+  accessibilityHint,
+}: IconButtonProps) => (
+  <PressableCard
+    onPress={onPress}
+    style={styles.buttonContainer}
+    accessibilityHint={accessibilityHint}
+  >
     <Ionicons
       name={icon}
       size={24}

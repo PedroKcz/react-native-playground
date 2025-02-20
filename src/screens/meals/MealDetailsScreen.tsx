@@ -24,6 +24,9 @@ const MealDetailsScreen = ({
           icon={isFavorite ? 'star' : 'star-outline'}
           onPress={handleFavorite}
           color={isFavorite ? 'gold' : 'black'}
+          accessibilityHint={
+            isFavorite ? 'Remove from favorites' : 'Add to favorites'
+          }
         />
       ),
     });
