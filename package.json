@@ -55,7 +55,6 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/runtime": "^7.26.0",
     "@testing-library/react-native": "^13.0.1",
-    "@types/eslint__js": "^8.42.3",
     "@types/react": "^18.3.12",
     "@types/react-test-renderer": "^19",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
