@@ -27,7 +27,7 @@ const PressableCard = ({
           ? [styles.pressableContainer, styles.pressedButton, style]
           : [styles.pressableContainer, style]
       }
-      android_ripple={{ color: 'rgba(255, 255, 255, 0.5)', foreground: true }}
+      android_ripple={{ color: 'rgba(117, 116, 115, 0.45)', foreground: true }}
       onPress={onPress}
       accessibilityHint={accessibilityHint}
     >

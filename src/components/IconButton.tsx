@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 48,
     width: 48,
+    overflow: 'hidden',
   },
   icon: {
     padding: 12,

@@ -14,6 +14,7 @@ import CategoriesScreen from './screens/meals/CategoriesScreen';
 import CategoryScreen from './screens/meals/CategoryScreen';
 import MealDetailsScreen from './screens/meals/MealDetailsScreen';
 import AddExpenseScreen from './screens/expenses/AddExpenseScreen';
+import IconButton from './components/IconButton';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -65,25 +66,27 @@ const App = () => {
           <Stack.Screen
             name="Expenses"
             component={ExpensesScreen}
-            options={{ title: 'Expenses', headerShown: false }}
+            options={({ navigation }) => ({
+              title: 'Expenses',
+              headerRight: () => (
+                <IconButton
+                  icon="add"
+                  onPress={() => navigation.navigate('AddExpense')}
+                  color="black"
+                  accessibilityHint="Add new expense"
+                />
+              ),
+            })}
           />
           <Stack.Screen
             name="EditExpense"
             component={EditExpenseScreen}
-            options={{
-              title: 'Edit',
-              headerStyle: { backgroundColor: 'darkblue' },
-              headerTintColor: 'white',
-            }}
+            options={{ title: 'Edit' }}
           />
           <Stack.Screen
             name="AddExpense"
             component={AddExpenseScreen}
-            options={{
-              title: 'Add',
-              headerStyle: { backgroundColor: 'darkblue' },
-              headerTintColor: 'white',
-            }}
+            options={{ title: 'Add' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
