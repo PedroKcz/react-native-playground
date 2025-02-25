@@ -26,6 +26,13 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
             onPress={() => navigation.navigate('MealsCategories')}
           />
         </View>
+
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Expenses"
+            onPress={() => navigation.navigate('Expenses')}
+          />
+        </View>
       </View>
     </View>
   );

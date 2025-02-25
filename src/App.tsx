@@ -2,15 +2,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import RootStackParams from './lib/routes/types';
+import EditExpenseScreen from './screens/expenses/EditExpenseScreen';
+import ExpensesScreen from './screens/expenses/ExpensesScreen';
+import GameOverScreen from './screens/game/GameOverScreen';
+import GameScreen from './screens/game/GameScreen';
+import StartGameScreen from './screens/game/StartGameScreen';
 import GoalScreen from './screens/goal/GoalScreen';
 import HomeScreen from './screens/home/HomeScreen';
-import StartGameScreen from './screens/game/StartGameScreen';
-import GameScreen from './screens/game/GameScreen';
-import GameOverScreen from './screens/game/GameOverScreen';
-import RootStackParams from './lib/routes/types';
 import CategoriesScreen from './screens/meals/CategoriesScreen';
 import CategoryScreen from './screens/meals/CategoryScreen';
 import MealDetailsScreen from './screens/meals/MealDetailsScreen';
+import AddExpenseScreen from './screens/expenses/AddExpenseScreen';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -58,6 +61,29 @@ const App = () => {
             name="MealDetails"
             component={MealDetailsScreen}
             options={{ title: '' }}
+          />
+          <Stack.Screen
+            name="Expenses"
+            component={ExpensesScreen}
+            options={{ title: 'Expenses', headerShown: false }}
+          />
+          <Stack.Screen
+            name="EditExpense"
+            component={EditExpenseScreen}
+            options={{
+              title: 'Edit',
+              headerStyle: { backgroundColor: 'darkblue' },
+              headerTintColor: 'white',
+            }}
+          />
+          <Stack.Screen
+            name="AddExpense"
+            component={AddExpenseScreen}
+            options={{
+              title: 'Add',
+              headerStyle: { backgroundColor: 'darkblue' },
+              headerTintColor: 'white',
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

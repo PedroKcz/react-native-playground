@@ -9,6 +9,11 @@ type RootStackParams = {
   MealsCategories: undefined;
   MealsCategory: { id: string };
   MealDetails: { id: string };
+  Expenses: undefined;
+  EditExpense: { id: string };
+  AllExpenses: undefined;
+  RecentExpenses: undefined;
+  AddExpense: undefined;
 };
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParams, 'Home'>;
@@ -41,6 +46,31 @@ export type MealsCategoryScreenRouteProp = NativeStackScreenProps<
 export type MealDetailsScreenRouteProp = NativeStackScreenProps<
   RootStackParams,
   'MealDetails'
+>;
+
+export type ExpensesScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'Expenses'
+>;
+
+export type EditExpenseScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'EditExpense'
+>;
+
+export type AllExpensesScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'AllExpenses'
+>;
+
+export type RecentExpensesScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'RecentExpenses'
+>;
+
+export type AddExpenseScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'AddExpense'
 >;
 
 export default RootStackParams;
