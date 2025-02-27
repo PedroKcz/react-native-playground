@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import RootStackParams from './lib/routes/types';
+import AddExpenseScreen from './screens/expenses/AddExpenseScreen';
 import EditExpenseScreen from './screens/expenses/EditExpenseScreen';
 import ExpensesScreen from './screens/expenses/ExpensesScreen';
 import GameOverScreen from './screens/game/GameOverScreen';
@@ -13,8 +14,6 @@ import HomeScreen from './screens/home/HomeScreen';
 import CategoriesScreen from './screens/meals/CategoriesScreen';
 import CategoryScreen from './screens/meals/CategoryScreen';
 import MealDetailsScreen from './screens/meals/MealDetailsScreen';
-import AddExpenseScreen from './screens/expenses/AddExpenseScreen';
-import IconButton from './components/IconButton';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -66,27 +65,17 @@ const App = () => {
           <Stack.Screen
             name="Expenses"
             component={ExpensesScreen}
-            options={({ navigation }) => ({
-              title: 'Expenses',
-              headerRight: () => (
-                <IconButton
-                  icon="add"
-                  onPress={() => navigation.navigate('AddExpense')}
-                  color="black"
-                  accessibilityHint="Add new expense"
-                />
-              ),
-            })}
+            options={{ title: 'Expenses' }}
           />
           <Stack.Screen
             name="EditExpense"
             component={EditExpenseScreen}
-            options={{ title: 'Edit' }}
+            options={{ title: 'Edit', presentation: 'modal' }}
           />
           <Stack.Screen
             name="AddExpense"
             component={AddExpenseScreen}
-            options={{ title: 'Add' }}
+            options={{ title: 'Add', presentation: 'modal' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
