@@ -2,6 +2,7 @@ import { useExpensesStore } from '@/store';
 import { StyleSheet, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import { EditExpenseScreenRouteProp } from '../../lib/routes/types';
+import ExpenseForm from './components/ExpenseForm';
 
 const EditExpenseScreen = ({
   route,
@@ -26,18 +27,16 @@ const EditExpenseScreen = ({
   if (id) {
     return (
       <View style={style.screen}>
+        <ExpenseForm />
         <View style={style.buttonsContainer}>
           <PrimaryButton onPress={handleCancel} style={style.button}>
             Cancel
           </PrimaryButton>
-          <PrimaryButton onPress={handleUpdate} style={style.button}>
-            Update
-          </PrimaryButton>
-        </View>
-
-        <View>
           <PrimaryButton onPress={handleDelete} style={style.deleteButton}>
             Delete
+          </PrimaryButton>
+          <PrimaryButton onPress={handleUpdate} style={style.button}>
+            Update
           </PrimaryButton>
         </View>
       </View>
