@@ -4,12 +4,12 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import Expense from '../screens/expenses/models/Expense';
 
-type ExpensesStore = {
+interface ExpensesStore {
   expenses: Expense[];
-  addExpense: (_expense: Omit<Expense, 'id'>) => void;
-  deleteExpense: (_id: string) => void;
-  updateExpense: (_id: string, _expense: Partial<Omit<Expense, 'id'>>) => void;
-};
+  addExpense: (expense: Omit<Expense, 'id'>) => void;
+  deleteExpense: (id: string) => void;
+  updateExpense: (id: string, expense: Partial<Omit<Expense, 'id'>>) => void;
+}
 
 export const useExpensesStore = create<ExpensesStore>()(
   persist(
