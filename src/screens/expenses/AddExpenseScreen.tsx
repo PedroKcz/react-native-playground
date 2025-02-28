@@ -1,10 +1,20 @@
-import { View, StyleSheet } from 'react-native';
+import { useExpensesStore } from '@/store';
+import { StyleSheet, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
+import { expenses } from './data/ExpensesData';
+import { AddExpenseScreenRouteProp } from '../../lib/routes/types';
 
-const AddExpenseScreen = () => {
+const AddExpenseScreen = ({ navigation }: AddExpenseScreenRouteProp) => {
+  const { addExpense } = useExpensesStore();
+
+  const handleAdd = () => {
+    expenses.map(expense => addExpense(expense));
+    navigation.goBack();
+  };
+
   return (
     <View style={style.screen}>
-      <PrimaryButton onPress={() => {}}>Add</PrimaryButton>
+      <PrimaryButton onPress={handleAdd}>Add</PrimaryButton>
     </View>
   );
 };

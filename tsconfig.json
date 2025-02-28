@@ -3,7 +3,8 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "paths": {
-      "@/utils": ["./src/utils"]
+      "@/utils": ["./src/utils"],
+      "@/store": ["./src/store"]
     }
   }
 }

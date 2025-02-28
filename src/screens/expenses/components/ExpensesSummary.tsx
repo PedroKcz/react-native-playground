@@ -26,15 +26,20 @@ const ExpenseSummary = ({
         </View>
       </View>
 
-      <FlatList
-        style={style.list}
-        data={expenses}
-        renderItem={({ item }) => (
-          <ExpenseItem expense={item} onPress={onPress} />
-        )}
-        keyExtractor={item => item.id}
-        ItemSeparatorComponent={() => <View style={style.separator} />}
-      />
+      {expenses.length === 0 ? (
+        <Text style={style.noExpensesLabel}>No expenses</Text>
+      ) : (
+        <FlatList
+          style={style.list}
+          data={expenses}
+          renderItem={({ item }) =>
+            item && <ExpenseItem expense={item} onPress={onPress} />
+          }
+          keyExtractor={item => item.id}
+          ItemSeparatorComponent={() => <View style={style.separator} />}
+          contentContainerStyle={style.contentContainer}
+        />
+      )}
     </View>
   );
 };
@@ -47,7 +52,8 @@ const style = StyleSheet.create({
     padding: 16,
     backgroundColor: 'lightblue',
     borderRadius: 8,
-    margin: 16,
+    marginTop: 16,
+    marginHorizontal: 16,
     gap: 8,
   },
   label: {
@@ -65,6 +71,14 @@ const style = StyleSheet.create({
   },
   list: {
     flex: 1,
+  },
+  noExpensesLabel: {
+    textAlign: 'center',
+    fontSize: 16,
+    margin: 16,
+  },
+  contentContainer: {
+    paddingVertical: 16,
   },
 });
 

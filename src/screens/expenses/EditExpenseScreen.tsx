@@ -1,3 +1,4 @@
+import { useExpensesStore } from '@/store';
 import { StyleSheet, View } from 'react-native';
 import PrimaryButton from '../../components/PrimaryButton';
 import { EditExpenseScreenRouteProp } from '../../lib/routes/types';
@@ -7,20 +8,35 @@ const EditExpenseScreen = ({
   navigation,
 }: EditExpenseScreenRouteProp) => {
   const id = route.params?.id;
+  const { deleteExpense } = useExpensesStore();
+
+  const handleDelete = () => {
+    deleteExpense(id);
+    navigation.goBack();
+  };
+
+  const handleCancel = () => {
+    navigation.goBack();
+  };
+
+  const handleUpdate = () => {
+    navigation.goBack();
+  };
+
   if (id) {
     return (
       <View style={style.screen}>
         <View style={style.buttonsContainer}>
-          <PrimaryButton onPress={() => {}} style={style.button}>
+          <PrimaryButton onPress={handleCancel} style={style.button}>
             Cancel
           </PrimaryButton>
-          <PrimaryButton onPress={() => {}} style={style.button}>
+          <PrimaryButton onPress={handleUpdate} style={style.button}>
             Update
           </PrimaryButton>
         </View>
 
         <View>
-          <PrimaryButton onPress={() => {}} style={style.deleteButton}>
+          <PrimaryButton onPress={handleDelete} style={style.deleteButton}>
             Delete
           </PrimaryButton>
         </View>
@@ -45,7 +61,6 @@ const style = StyleSheet.create({
   },
   button: {
     backgroundColor: 'blue',
-    padding: 8,
     flex: 1,
     borderRadius: 8,
     overflow: 'hidden',
@@ -53,7 +68,6 @@ const style = StyleSheet.create({
   deleteButton: {
     backgroundColor: 'red',
     alignSelf: 'flex-end',
-    padding: 8,
     borderRadius: 8,
     overflow: 'hidden',
   },

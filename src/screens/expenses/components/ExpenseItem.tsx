@@ -13,7 +13,9 @@ const ExpenseItem = ({
     <PressableCard style={style.container} onPress={() => onPress(expense.id)}>
       <Text style={style.title}>{expense.title}</Text>
       <View style={style.expenseDetails}>
-        <Text style={style.description}>{expense.date.toDateString()}</Text>
+        <Text style={style.description}>
+          {new Date(expense.date).toLocaleString()}
+        </Text>
         <Text style={style.description}>${expense.amount.toFixed(2)}</Text>
       </View>
     </PressableCard>

@@ -1,8 +1,9 @@
+import { useExpensesStore } from '@/store';
 import { AllExpensesScreenRouteProp } from '../../lib/routes/types';
 import ExpenseSummary from './components/ExpensesSummary';
-import { expenses } from './data/ExpensesData';
 
 const AllExpensesScreen = ({ navigation }: AllExpensesScreenRouteProp) => {
+  const { expenses } = useExpensesStore();
   return (
     <ExpenseSummary
       expenses={expenses}

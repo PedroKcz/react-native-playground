@@ -1,6 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
-import PressableCard from './PressableCard';
+import { Platform, Pressable, StyleSheet } from 'react-native';
 
 type IconButtonProps = {
   icon: keyof typeof Ionicons.glyphMap;
@@ -15,9 +14,18 @@ const IconButton = ({
   color,
   accessibilityHint,
 }: IconButtonProps) => (
-  <PressableCard
-    onPress={onPress}
-    style={styles.buttonContainer}
+  <Pressable
+    style={({ pressed }) =>
+      pressed && Platform.OS == 'ios'
+        ? [
+            styles.pressableContainer,
+            styles.pressedButton,
+            styles.buttonContainer,
+          ]
+        : [styles.pressableContainer, styles.buttonContainer]
+    }
+    android_ripple={{ color: 'rgba(117, 116, 115, 0.45)', foreground: true }}
+    onPressIn={onPress}
     accessibilityHint={accessibilityHint}
   >
     <Ionicons
@@ -26,7 +34,7 @@ const IconButton = ({
       color={color || 'black'}
       style={styles.icon}
     />
-  </PressableCard>
+  </Pressable>
 );
 
 const styles = StyleSheet.create({
@@ -42,6 +50,13 @@ const styles = StyleSheet.create({
     padding: 12,
     height: 48,
     width: 48,
+  },
+  pressableContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  pressedButton: {
+    opacity: 0.5,
   },
 });
 
