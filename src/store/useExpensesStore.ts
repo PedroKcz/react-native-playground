@@ -9,6 +9,7 @@ interface ExpensesStore {
   addExpense: (expense: Omit<Expense, 'id'>) => void;
   deleteExpense: (id: string) => void;
   updateExpense: (id: string, expense: Partial<Omit<Expense, 'id'>>) => void;
+  getExpense: (id: string) => Expense | undefined;
 }
 
 export const useExpensesStore = create<ExpensesStore>()(
@@ -27,10 +28,15 @@ export const useExpensesStore = create<ExpensesStore>()(
       },
       updateExpense: (id: string, expense: Partial<Omit<Expense, 'id'>>) => {
         set({
-          expenses: get().expenses.map(prev =>
-            prev.id === id ? { ...expense, ...prev } : prev,
-          ),
+          expenses: [
+            ...get().expenses.map(prev =>
+              prev.id === id ? { ...prev, ...expense } : prev,
+            ),
+          ],
         });
+      },
+      getExpense: (id: string) => {
+        return get().expenses.find(expense => expense.id === id);
       },
     }),
     {

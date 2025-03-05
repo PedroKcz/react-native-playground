@@ -14,9 +14,9 @@ const ExpenseItem = ({
       <Text style={style.title}>{expense.title}</Text>
       <View style={style.expenseDetails}>
         <Text style={style.description}>
-          {new Date(expense.date).toLocaleString()}
+          {new Date(expense.date).toLocaleDateString()}
         </Text>
-        <Text style={style.description}>${expense.amount.toFixed(2)}</Text>
+        <Text style={style.description}>${expense.amount?.toFixed(2)}</Text>
       </View>
     </PressableCard>
   );

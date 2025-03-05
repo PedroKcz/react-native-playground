@@ -5,4 +5,6 @@ interface Expense {
   date: number;
 }
 
+export type ExpenseWithoutId = Omit<Expense, 'id'>;
+
 export default Expense;

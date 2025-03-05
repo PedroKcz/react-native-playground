@@ -21,7 +21,7 @@ const ExpenseSummary = ({
             $
             {expenses
               .reduce((acc, expense) => acc + expense.amount, 0)
-              .toFixed(2)}
+              ?.toFixed(2)}
           </Text>
         </View>
       </View>
