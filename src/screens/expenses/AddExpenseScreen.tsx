@@ -22,7 +22,7 @@ const AddExpenseScreen = ({ navigation }: AddExpenseScreenRouteProp) => {
   return (
     <View style={style.screen}>
       <ExpenseForm onExpenseSet={handleExpenseSet} />
-      <PrimaryButton onPress={handleAdd} isEnabled={expense !== undefined}>
+      <PrimaryButton onPress={handleAdd} disabled={expense === undefined}>
         Add
       </PrimaryButton>
     </View>

@@ -20,7 +20,7 @@ const PressableCard = ({
   children,
   style,
   accessibilityHint,
-  disabled,
+  disabled = false,
 }: PressableCardProps) => {
   return (
     <Pressable

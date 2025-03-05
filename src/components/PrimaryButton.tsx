@@ -6,17 +6,16 @@ const PrimaryButton = ({
   children,
   onPress,
   style,
-  isEnabled,
+  disabled = false,
 }: {
   children: ReactNode;
   onPress: () => void;
   style?: StyleProp<ViewStyle> | undefined;
-  isEnabled?: boolean | undefined;
+  disabled?: boolean;
 }) => {
-  const enabled = isEnabled ?? true;
   return (
-    <View style={[styles.buttonContainer, style, !enabled && styles.disabled]}>
-      <PressableCard onPress={onPress} disabled={!enabled}>
+    <View style={[styles.buttonContainer, style, disabled && styles.disabled]}>
+      <PressableCard onPress={onPress} disabled={disabled}>
         <Text style={styles.buttonText}>{children}</Text>
       </PressableCard>
     </View>
@@ -43,6 +42,8 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     elevation: 0,
     shadowOpacity: 0,
+    shadowOffset: { width: 0, height: 0 },
+    shadowRadius: 0,
   },
 });
 

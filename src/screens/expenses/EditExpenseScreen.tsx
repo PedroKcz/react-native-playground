@@ -54,7 +54,7 @@ const EditExpenseScreen = ({
           <PrimaryButton
             onPress={handleUpdate}
             style={style.button}
-            isEnabled={expense !== undefined}
+            disabled={expense === undefined}
           >
             Update
           </PrimaryButton>
