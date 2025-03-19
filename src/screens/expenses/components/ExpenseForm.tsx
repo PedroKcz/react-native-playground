@@ -17,7 +17,9 @@ const ExpenseForm = ({ prevExpense, onExpenseSet }: ExpenseFormProps) => {
     prevExpense?.amount.toString() || undefined,
   );
   const [date, setDate] = useState(
-    parseDate(prevExpense?.date)?.toISOString() || new Date().toISOString(),
+    (
+      parseDate(prevExpense?.date)?.toISOString() || new Date().toISOString()
+    ).split('T')[0],
   );
   const [title, setTitle] = useState(prevExpense?.title || undefined);
 
