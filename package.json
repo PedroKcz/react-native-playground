@@ -64,7 +64,7 @@
     "@typescript-eslint/parser": "^8.28.0",
     "babel-jest": "^29.7.0",
     "babel-preset-expo": "^12.0.2",
-    "eslint": "^9.22",
+    "eslint": "^9.23",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.4",
     "eslint-plugin-react": "^7.37.4",
