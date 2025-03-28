@@ -33,6 +33,10 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
             onPress={() => navigation.navigate('Expenses')}
           />
         </View>
+
+        <View style={styles.buttonContainer}>
+          <Button title="Pairs" onPress={() => navigation.navigate('Pairs')} />
+        </View>
       </View>
     </View>
   );

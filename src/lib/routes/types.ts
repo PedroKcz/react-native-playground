@@ -14,6 +14,7 @@ type RootStackParams = {
   AllExpenses: undefined;
   RecentExpenses: undefined;
   AddExpense: undefined;
+  Pairs: undefined;
 };
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParams, 'Home'>;
@@ -71,6 +72,11 @@ export type RecentExpensesScreenRouteProp = NativeStackScreenProps<
 export type AddExpenseScreenRouteProp = NativeStackScreenProps<
   RootStackParams,
   'AddExpense'
+>;
+
+export type PairsScreenRouteProp = NativeStackScreenProps<
+  RootStackParams,
+  'Pairs'
 >;
 
 export default RootStackParams;

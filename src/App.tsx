@@ -14,6 +14,7 @@ import HomeScreen from './screens/home/HomeScreen';
 import CategoriesScreen from './screens/meals/CategoriesScreen';
 import CategoryScreen from './screens/meals/CategoryScreen';
 import MealDetailsScreen from './screens/meals/MealDetailsScreen';
+import PairsGameScreen from './screens/pairs/PairsGameScreen';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -76,6 +77,11 @@ const App = () => {
             name="AddExpense"
             component={AddExpenseScreen}
             options={{ title: 'Add', presentation: 'modal' }}
+          />
+          <Stack.Screen
+            name="Pairs"
+            component={PairsGameScreen}
+            options={{ title: 'Pairs' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
