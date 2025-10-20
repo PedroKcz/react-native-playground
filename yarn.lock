@@ -10113,7 +10113,7 @@ __metadata:
     react: "npm:18.3.1"
     react-native: "npm:0.76.6"
     react-native-safe-area-context: "npm:5.3.0"
-    react-native-screens: "npm:~4.9.2"
+    react-native-screens: "npm:~4.17.1"
     react-native-uuid: "npm:^2.0.3"
     react-test-renderer: "npm:^18.3.1"
     typescript: "npm:^5.8.2"
@@ -10131,16 +10131,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:~4.9.2":
-  version: 4.9.2
-  resolution: "react-native-screens@npm:4.9.2"
+"react-native-screens@npm:~4.17.1":
+  version: 4.17.1
+  resolution: "react-native-screens@npm:4.17.1"
   dependencies:
     react-freeze: "npm:^1.0.0"
     warn-once: "npm:^0.1.0"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/ea285f80c2cf836ee87e09daf91d8c085ccc55726cabb556d278cec76d42e8843943f307549a406f373987f958cf3d35b194eac7bb374b1d9c9876dadcec90cd
+  checksum: 10c0/1058febb240dceb343a24620f62b4a85f4262dba736495ee02a805a122044beac3d0daab707be2bd38fffc0ef1b99d2ba992ac95a7adfd8c0ebd3325e984ac44
   languageName: node
   linkType: hard
 
